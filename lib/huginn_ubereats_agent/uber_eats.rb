@@ -20,11 +20,21 @@ class UberEats
   # @param [String] html_str HTML document string
   # @return [Array<String>] Each entry contains dish name and price.
   def extract_menu(html_str: "")
-    list = []
+    doc = Nokogiri::HTML(html_str)
+    menu = []
+    name = nil
+    price = nil
 
-    # TODO: parse document & extract dishes
+    doc.css(DISH_CONTAINER).each do |dish|
+      name = dish.css(DISH_NAME)&.text&.strip
+      price = dish.css(DISH_PRICE)&.text&.strip
 
-    list
+      unless name&.empty? || price&.empty? then
+        menu << [ name.dup, price.dup ]
+      end
+    end
+
+    menu.sort
   end
 
   private
