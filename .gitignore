@@ -1,0 +1,7 @@
+spec/huginn
+.env
+Gemfile.lock
+vendor
+
+# vim swap files
+.*.swp
