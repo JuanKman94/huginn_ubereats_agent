@@ -3,7 +3,7 @@
 require 'test_helper'
 
 class UberEatsTest < Minitest::Spec
-  let(:sample_str) { File.read("#{File.dirname(__FILE__)}/data/sample.html") }
+  let(:sample_str) { File.read("#{File.dirname(__FILE__)}/../data/sample.html") }
 
   subject { UberEats.new }
 
